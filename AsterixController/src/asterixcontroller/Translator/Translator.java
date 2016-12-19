@@ -15,7 +15,9 @@ public class Translator {
     
     private FRN frn = new FRN();
     
-    public void proccessIncomingData(byte[] array) {
+    public void proccessIncomingData(byte[] array, int size) {
+        
+        
         
         
         

@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javolution.io.Struct;
+import javolution.io.Struct.Unsigned8;
 
 /**
  *
@@ -24,7 +26,6 @@ public class FileController {
 
     public FileController(String path) {
         analyzePath(path);
-        readData(path);
     }
 
     public static void analyzePath(String path) {
@@ -47,16 +48,18 @@ public class FileController {
         }
     }
 
-    public void readData(String path) {
+    public int readData(byte[] b, String path) {
 
-        byte[] buffer = new byte[512];
-        int i,j;
+        byte[] buffer = new byte[1024];
+        int i,j = 0;
+        
         try {
             input = new FileInputStream(path);
-            j = 0;
+            
             while ((i = input.read()) != -1) {
-                
-                System.out.println(i);
+                buffer[j] =  (byte)i;
+                System.out.println(buffer[j]);
+                j++;
             }
 
         } catch (FileNotFoundException ex) {
@@ -65,6 +68,7 @@ public class FileController {
         } catch (IOException ex) {
             Logger.getLogger(FileController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return j;
 
     }
 }
