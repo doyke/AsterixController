@@ -5,6 +5,9 @@
  */
 package asterixcontroller;
 
+import asterixcontroller.DataLinkController.FileController;
+import java.util.Scanner;
+
 /**
  *
  * @author 1AKEDEEPROG2
@@ -16,6 +19,14 @@ public class AsterixController {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        Scanner input = new Scanner(System.in);
+        String path;
+        System.out.println("Enter a path : ");
+        path = input.nextLine();
+        
+        
+        FileController test = new FileController(path);
     }
     
 }
