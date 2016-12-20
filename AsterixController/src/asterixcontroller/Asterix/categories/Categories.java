@@ -20,6 +20,10 @@ public class Categories extends Struct {
         return cat;
     }
     
+    public void setCat(Unsigned8 category) {
+        cat = category;
+    }
+    
     
     
 }

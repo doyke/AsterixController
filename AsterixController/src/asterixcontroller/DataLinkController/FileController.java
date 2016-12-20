@@ -50,15 +50,14 @@ public class FileController {
 
     public int readData(byte[] b, String path) {
 
-        byte[] buffer = new byte[1024];
         int i,j = 0;
         
         try {
             input = new FileInputStream(path);
             
             while ((i = input.read()) != -1) {
-                buffer[j] =  (byte)i;
-                System.out.println(buffer[j]);
+                b[j] =  (byte)i;
+                //System.out.println(b[j]);
                 j++;
             }
 

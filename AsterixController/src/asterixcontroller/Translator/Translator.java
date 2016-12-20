@@ -5,7 +5,10 @@
  */
 package asterixcontroller.Translator;
 
+import asterixcontroller.Asterix.categories.Categories;
 import asterixcontroller.Asterix.categories.FRN;
+import asterixcontroller.Asterix.categories.Length;
+import javolution.io.Struct.Unsigned8;
 
 /**
  *
@@ -14,8 +17,20 @@ import asterixcontroller.Asterix.categories.FRN;
 public class Translator {
     
     private FRN frn = new FRN();
+    private int length;
+    private final Categories cat = null;
     
     public void proccessIncomingData(byte[] array, int size) {
+        
+        length = size;
+        System.out.printf("Category : %d", array[0]);
+        Length l = new Length();
+        l.setLength((short)(array[2] + array[3]));
+        System.out.println(l);
+        
+//        for (byte r:array) {
+//            System.out.println(r);
+//        }
         
         
         
